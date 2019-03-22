@@ -13,47 +13,14 @@ const forecast = (lat, lon, callback) => {
         } else if (body.error) {
             callback(body.error, undefined);
         } else {
-            callback(
-                undefined,
-                {
-                    summary: body.currently.summary,
-                    temperature: body.currently.temperature,
-                    precipType: body.currently.precipType,
-                    precipProbability: body.currently.precipProbability,
-                    humidity: body.currently.humidity,
-                    windSpeed: body.currently.windSpeed
-                }
-                // "Summary: " +
-                //     body.currently.summary +
-                //     "\n" +
-                //     "Temperature: " +
-                //     body.currently.temperature +
-                //     "°" +
-                //     "\n" +
-                //     "Precipitation type: " +
-                //     body.currently.precipType +
-                //     "\n" +
-                //     "Probability: " +
-                //     body.currently.precipProbability +
-                //     "\n" +
-                //     "Humidity: " +
-                //     body.currently.humidity +
-                //     "\n" +
-                //     "Wind speed: " +
-                //     body.currently.windSpeed +
-                //     "\n"
-
-                // body.currently.summary +
-                //     " throughout the day. " +
-                //     "\n" +
-                //     "It is currently " +
-                //     body.currently.temperature +
-                //     " degrees out." +
-                //     "\n" +
-                //     "There is a " +
-                //     body.currently.precipProbability +
-                //     "% chance of rain."
-            );
+            callback(undefined, {
+                summary: body.currently.summary,
+                temperature: body.currently.temperature,
+                precipType: body.currently.precipType,
+                precipProbability: body.currently.precipProbability,
+                humidity: body.currently.humidity,
+                windSpeed: body.currently.windSpeed
+            });
         }
     });
 };
