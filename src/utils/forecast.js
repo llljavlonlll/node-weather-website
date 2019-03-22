@@ -15,13 +15,36 @@ const forecast = (lat, lon, callback) => {
         } else {
             callback(
                 undefined,
-                body.currently.summary +
-                    " throughout the day. " +
-                    "It is currently " +
+                "Summary: " +
+                    body.currently.summary +
+                    "\n" +
+                    "Temperature: " +
                     body.currently.temperature +
-                    " degrees out. There is a " +
+                    "°" +
+                    "\n" +
+                    "Precipitation type: " +
+                    body.currently.precipType +
+                    "\n" +
+                    "Probability: " +
                     body.currently.precipProbability +
-                    "% chance of rain."
+                    "\n" +
+                    "Humidity: " +
+                    body.current.humidity +
+                    "\n" +
+                    "Wind speed: " +
+                    body.currently.windSpeed +
+                    "\n"
+
+                // body.currently.summary +
+                //     " throughout the day. " +
+                //     "\n" +
+                //     "It is currently " +
+                //     body.currently.temperature +
+                //     " degrees out." +
+                //     "\n" +
+                //     "There is a " +
+                //     body.currently.precipProbability +
+                //     "% chance of rain."
             );
         }
     });
