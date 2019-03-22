@@ -50,18 +50,37 @@ app.get("/weather", (req, res) => {
                 });
             }
 
-            forecast(latitude, longitude, (error, forecastData) => {
-                if (error) {
-                    return res.send({
-                        error: error
+            forecast(
+                latitude,
+                longitude,
+                (
+                    error,
+                    {
+                        summary,
+                        temperature,
+                        precipType,
+                        precipProbability,
+                        humidity,
+                        windSpeed
+                    }
+                ) => {
+                    if (error) {
+                        return res.send({
+                            error: error
+                        });
+                    }
+                    res.send({
+                        location,
+                        summary,
+                        temperature,
+                        precipType,
+                        precipProbability,
+                        humidity,
+                        windSpeed,
+                        address: req.query.address
                     });
                 }
-                res.send({
-                    location,
-                    forecast: forecastData,
-                    address: req.query.address
-                });
-            });
+            );
         }
     );
 });

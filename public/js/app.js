@@ -2,6 +2,7 @@ const weatherForm = document.querySelector("form");
 const search = document.querySelector("input");
 const messageOne = document.querySelector("#message-1");
 const messageTwo = document.querySelector("#message-2");
+
 // messageOne.textContent = "From Javascript";
 
 weatherForm.addEventListener("submit", e => {
@@ -14,7 +15,26 @@ weatherForm.addEventListener("submit", e => {
                 messageOne.textContent = data.error;
             } else {
                 messageOne.textContent = data.location;
-                messageTwo.textContent = data.forecast;
+                messageTwo.innerHTML =
+                    "Summary: " +
+                    data.summary +
+                    "<br>" +
+                    "Temperature: " +
+                    data.temperature +
+                    "°" +
+                    "<br>" +
+                    "Precipitation type: " +
+                    data.precipType +
+                    "<br>" +
+                    "Probability: " +
+                    data.precipProbability +
+                    "<br>" +
+                    "Humidity: " +
+                    data.humidity +
+                    "<br>" +
+                    "Wind speed: " +
+                    data.windSpeed +
+                    "<br>";
             }
         });
     });

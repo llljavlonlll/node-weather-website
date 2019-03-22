@@ -15,25 +15,33 @@ const forecast = (lat, lon, callback) => {
         } else {
             callback(
                 undefined,
-                "Summary: " +
-                    body.currently.summary +
-                    "\n" +
-                    "Temperature: " +
-                    body.currently.temperature +
-                    "°" +
-                    "\n" +
-                    "Precipitation type: " +
-                    body.currently.precipType +
-                    "\n" +
-                    "Probability: " +
-                    body.currently.precipProbability +
-                    "\n" +
-                    "Humidity: " +
-                    body.current.humidity +
-                    "\n" +
-                    "Wind speed: " +
-                    body.currently.windSpeed +
-                    "\n"
+                {
+                    summary: body.currently.summary,
+                    temperature: body.currently.temperature,
+                    precipType: body.currently.precipType,
+                    precipProbability: body.currently.precipProbability,
+                    humidity: body.currently.humidity,
+                    windSpeed: body.currently.windSpeed
+                }
+                // "Summary: " +
+                //     body.currently.summary +
+                //     "\n" +
+                //     "Temperature: " +
+                //     body.currently.temperature +
+                //     "°" +
+                //     "\n" +
+                //     "Precipitation type: " +
+                //     body.currently.precipType +
+                //     "\n" +
+                //     "Probability: " +
+                //     body.currently.precipProbability +
+                //     "\n" +
+                //     "Humidity: " +
+                //     body.currently.humidity +
+                //     "\n" +
+                //     "Wind speed: " +
+                //     body.currently.windSpeed +
+                //     "\n"
 
                 // body.currently.summary +
                 //     " throughout the day. " +
